@@ -1,0 +1,57 @@
+<llpackages>
+    <package name='WebOb' version='0.9' install='chroot'>
+        <license>
+            unknown
+        </license>
+        <sources>
+            <file>
+                <pkg sha1='469ad2f36b487e605b7ccca2b71ff77e447cc9ef'>
+                    WebOb-0.9.tar.gz
+                </pkg>
+                <mirror>
+                    https://pypi.python.org/packages/source/W/WebOb/
+                </mirror>
+            </file>
+            <manualcheck date='20141008' interval='60' mirror='https://pypi.python.org/packages/source/W/WebOb/'/>
+        </sources>
+	<builddeps>
+                        <dep>bash</dep>
+                        <dep>cairo-dock-plugins</dep>
+                        <dep>Cython</dep>
+                        <dep>distcc</dep>
+                        <dep>docutils</dep>
+                        <dep>fusepy</dep>
+                        <dep>glibc</dep>
+                        <dep>M2Crypto</dep>
+                        <dep>nmap</dep>
+                        <dep>openssl</dep>
+                        <dep>py-dateutil</dep>
+                        <dep>pygobject</dep>
+                        <dep>Python</dep>
+                        <dep>setuptools</dep>
+                        <dep>six</dep>
+                        <dep>subversion</dep>
+                        <dep>xpra</dep>
+                </builddeps>
+        <unpack>
+            <![CDATA[tar xf ${SRCDIR}/${PKGNAME}-${PKGVERSION}.tar.gz
+]]>
+        </unpack>
+        <patch/>
+        <build>
+            <![CDATA[cd ${PKGNAME}-${PKGVERSION}
+python setup.py config
+python setup.py build
+]]>
+        </build>
+        <install>
+            <![CDATA[cd ${PKGNAME}-${PKGVERSION}
+python setup.py install
+]]>
+        </install>
+        <clean>
+            <![CDATA[rm -rf ${PKGNAME}-${PKGVERSION}
+]]>
+        </clean>
+    </package>
+</llpackages>
